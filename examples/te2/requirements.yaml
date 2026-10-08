@@ -1,0 +1,84 @@
+requirements:
+  - id: SYS-001
+    title: TE-2 meets Tern upper-stage needs
+    text: The TE-2 engine shall meet the propulsion needs of the Tern upper stage.
+
+  - id: PRP-001
+    parent: SYS-001
+    title: Vacuum performance
+    text: The engine shall deliver the vacuum performance assumed in the Tern mission design.
+
+  - id: PRP-010
+    parent: PRP-001
+    title: Measured vacuum thrust
+    text: Steady-state vacuum thrust measured in the altitude cell shall be at least 20 kN.
+    method: test
+    condition: mean(thrust) >= 20 kN during steady_state
+
+  - id: PRP-011
+    parent: PRP-001
+    title: Predicted vacuum thrust
+    text: Predicted vacuum thrust at the nominal operating point shall be at least 20 kN.
+    method: analysis
+    condition: value(thrust_vac) >= 20 kN
+
+  - id: PRP-044
+    parent: PRP-001
+    title: Vacuum specific impulse
+    text: Predicted vacuum specific impulse shall be at least 315 s.
+    method: analysis
+    condition: value(isp_vac) >= 315 s
+
+  - id: PRP-050
+    parent: PRP-001
+    title: Burn duration
+    text: The engine shall sustain at least 90 % of nominal chamber pressure for 25 s or more.
+    method: test
+    condition: duration(chamber_pressure >= 108 bar) >= 25 s
+
+  - id: PRP-030
+    parent: SYS-001
+    title: Chamber pressure limits
+    text: Chamber pressure shall stay within the structural and start-up limits of the thrust chamber.
+
+  - id: PRP-031
+    parent: PRP-030
+    title: Maximum chamber pressure
+    text: Chamber pressure shall never exceed 150 bar.
+    method: test
+    condition: max(chamber_pressure) <= 150 bar
+
+  - id: PRP-033
+    parent: PRP-030
+    title: Start-up overshoot
+    text: Chamber pressure overshoot during start-up shall not exceed 138 bar.
+    method: test
+    condition: max(chamber_pressure) <= 138 bar during startup
+
+  - id: TCS-020
+    parent: SYS-001
+    title: Throat wall temperature
+    text: Throat wall temperature shall not exceed 900 K during steady-state operation.
+    method: test
+    condition: max(throat_wall_temp) <= 900 K during steady_state
+
+  - id: STR-012
+    parent: SYS-001
+    title: Engine dry mass
+    text: Engine dry mass shall not exceed 95 kg.
+    method: inspection
+    condition: value(dry_mass) <= 95 kg
+
+  - id: SYS-030
+    parent: SYS-001
+    title: Engine length in the interstage
+    text: Overall engine length shall not exceed 1.4 m.
+    method: inspection
+    condition: value(engine_length) <= 1.4 m
+
+  - id: PRP-060
+    parent: SYS-001
+    title: Restart capability
+    text: The engine shall reach at least 90 % of nominal chamber pressure on a second ignition.
+    method: test
+    condition: max(chamber_pressure) >= 108 bar during second_burn

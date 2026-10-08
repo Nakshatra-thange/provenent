@@ -1,0 +1,22 @@
+time:
+  column: time_s
+  unit: s
+
+channels:
+  chamber_pressure:
+    column: PT-101
+    aliases: [PT101]   # renamed in the August DAQ reconfiguration
+    unit: psi
+    description: Chamber pressure transducer, injector face
+  thrust:
+    column: LC-01
+    unit: lbf
+    description: Thrust stand load cell, vacuum-equivalent
+  throat_wall_temp:
+    column: TC-205
+    unit: degC
+    description: Thermocouple embedded 1 mm below the throat hot-gas wall
+  mass_flow:
+    column: FM-01
+    unit: kg/s
+    description: Total propellant mass flow

@@ -1,0 +1,11 @@
+parameters:
+  chamber_pressure_nominal: {value: 120 bar, tolerance: 2%}
+  chamber_temperature: 3500 K
+  gamma: 1.22
+  molar_mass: 22 kg/kmol
+  expansion_ratio: {value: 30, tolerance: 0.5%}
+  throat_diameter: {value: 36 mm, tolerance: 0.05 mm}
+  cstar_efficiency: 0.98
+  cf_efficiency: 0.98
+  dry_mass: {value: 76.5 kg, source: "Weigh-in, SN03, 2026-07-30"}
+  engine_length: {value: 1.26 m, source: "CMM inspection report IR-0412"}

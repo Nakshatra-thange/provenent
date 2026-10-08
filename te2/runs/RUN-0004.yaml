@@ -1,0 +1,12 @@
+id: RUN-0004
+test_case: TC-HF-001
+date: 2026-08-28
+article: TE2-SN03
+data: RUN-0004.csv
+configuration:
+  chamber_pressure_nominal: 120 bar
+  expansion_ratio: 30
+  throat_diameter: 36 mm
+void: "Facility abort at T+4 s: LOX main valve position fault (facility, not engine)."
+notes: |
+  Aborted by facility redline.

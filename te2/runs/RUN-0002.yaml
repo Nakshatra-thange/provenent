@@ -1,0 +1,11 @@
+id: RUN-0002
+test_case: TC-HF-002
+date: 2026-07-25
+article: TE2-SN03
+data: RUN-0002.csv
+configuration:
+  chamber_pressure_nominal: 120 bar
+  expansion_ratio: 30
+  throat_diameter: 36 mm
+notes: |
+  Start-up transient, high-rate pressure acquisition.

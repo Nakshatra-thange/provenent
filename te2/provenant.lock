@@ -1,0 +1,289 @@
+{
+  "format": 1,
+  "generated_at": "2026-10-08T08:48:00+00:00",
+  "tool": "provenant 0.1.0",
+  "design": {
+    "cf_efficiency": {
+      "value": "0.98",
+      "si": "0.98[dimensionless]"
+    },
+    "chamber_pressure_nominal": {
+      "value": "120 bar",
+      "si": "12000000.0[pressure]"
+    },
+    "chamber_temperature": {
+      "value": "3500 K",
+      "si": "3500.0[temperature]"
+    },
+    "cstar_efficiency": {
+      "value": "0.98",
+      "si": "0.98[dimensionless]"
+    },
+    "dry_mass": {
+      "value": "76.5 kg",
+      "si": "76.5[mass]"
+    },
+    "engine_length": {
+      "value": "1.26 m",
+      "si": "1.26[length]"
+    },
+    "expansion_ratio": {
+      "value": "30",
+      "si": "30.0[dimensionless]"
+    },
+    "gamma": {
+      "value": "1.22",
+      "si": "1.22[dimensionless]"
+    },
+    "molar_mass": {
+      "value": "22 kg/kmol",
+      "si": "22.0[molar_mass]"
+    },
+    "throat_diameter": {
+      "value": "36 mm",
+      "si": "0.036000000000000004[length]"
+    }
+  },
+  "requirements": {
+    "SYS-001": {
+      "title": "TE-2 meets Tern upper-stage needs",
+      "status": "unverified",
+      "reason": "1 of 6 children unverified: PRP-060",
+      "condition": null
+    },
+    "PRP-001": {
+      "title": "Vacuum performance",
+      "status": "verified",
+      "reason": "all 4 children verified",
+      "condition": null
+    },
+    "PRP-010": {
+      "title": "Measured vacuum thrust",
+      "status": "verified",
+      "reason": "passed in RUN-0003",
+      "condition": "mean(thrust) >= 20 kN during steady_state"
+    },
+    "PRP-011": {
+      "title": "Predicted vacuum thrust",
+      "status": "verified",
+      "reason": "analysis of current design",
+      "condition": "value(thrust_vac) >= 20 kN"
+    },
+    "PRP-044": {
+      "title": "Vacuum specific impulse",
+      "status": "verified",
+      "reason": "analysis of current design",
+      "condition": "value(isp_vac) >= 315 s"
+    },
+    "PRP-050": {
+      "title": "Burn duration",
+      "status": "verified",
+      "reason": "passed in RUN-0003",
+      "condition": "duration(chamber_pressure >= 108 bar) >= 25 s"
+    },
+    "PRP-030": {
+      "title": "Chamber pressure limits",
+      "status": "verified",
+      "reason": "all 2 children verified",
+      "condition": null
+    },
+    "PRP-031": {
+      "title": "Maximum chamber pressure",
+      "status": "verified",
+      "reason": "passed in RUN-0003, RUN-0002",
+      "condition": "max(chamber_pressure) <= 150 bar"
+    },
+    "PRP-033": {
+      "title": "Start-up overshoot",
+      "status": "verified",
+      "reason": "passed in RUN-0002",
+      "condition": "max(chamber_pressure) <= 138 bar during startup"
+    },
+    "TCS-020": {
+      "title": "Throat wall temperature",
+      "status": "verified",
+      "reason": "passed in RUN-0003",
+      "condition": "max(throat_wall_temp) <= 900 K during steady_state"
+    },
+    "STR-012": {
+      "title": "Engine dry mass",
+      "status": "verified",
+      "reason": "inspection of current design",
+      "condition": "value(dry_mass) <= 95 kg"
+    },
+    "SYS-030": {
+      "title": "Engine length in the interstage",
+      "status": "verified",
+      "reason": "inspection of current design",
+      "condition": "value(engine_length) <= 1.4 m"
+    },
+    "PRP-060": {
+      "title": "Restart capability",
+      "status": "unverified",
+      "reason": "not yet run: TC-RS-001",
+      "condition": "max(chamber_pressure) >= 108 bar during second_burn"
+    }
+  },
+  "evidence": {
+    "PRP-010@RUN-0003": {
+      "requirement": "PRP-010",
+      "source": "RUN-0003",
+      "test_case": "TC-HF-001",
+      "verdict": "pass",
+      "measured": "22.03 kN",
+      "margin": 0.1015,
+      "applicable": true,
+      "components": {
+        "channels": "623a897d8620c587",
+        "configuration": "77d6e8f54e73b14e",
+        "data": "aae503e324c432459373ddff13c57d8352fb9f3a2d35c614a8f417f3f0877a2d",
+        "requirement": "b5d113bd0c2e4069",
+        "test_case": "58bb014190058a86"
+      }
+    },
+    "PRP-011@design": {
+      "requirement": "PRP-011",
+      "source": "design",
+      "test_case": null,
+      "verdict": "pass",
+      "measured": "22.03 kN",
+      "margin": 0.101504,
+      "applicable": true,
+      "components": {
+        "model": "57dfd2447cbb17f5",
+        "params": "6220dda2e7b97429",
+        "requirement": "2614a829e9f278a2"
+      }
+    },
+    "PRP-031@RUN-0002": {
+      "requirement": "PRP-031",
+      "source": "RUN-0002",
+      "test_case": "TC-HF-002",
+      "verdict": "pass",
+      "measured": "135.1 bar",
+      "margin": 0.099618,
+      "applicable": true,
+      "components": {
+        "channels": "cfe76e0717482474",
+        "configuration": "77d6e8f54e73b14e",
+        "data": "8fbfbd7d3fd6b90e94aa82ea92d820eed936e8f0d4155aba866bcafb20d16608",
+        "requirement": "27b7c2e2fc6acdc6",
+        "test_case": "65b18dfa3272572b"
+      }
+    },
+    "PRP-031@RUN-0003": {
+      "requirement": "PRP-031",
+      "source": "RUN-0003",
+      "test_case": "TC-HF-001",
+      "verdict": "pass",
+      "measured": "134.2 bar",
+      "margin": 0.105451,
+      "applicable": true,
+      "components": {
+        "channels": "cfe76e0717482474",
+        "configuration": "77d6e8f54e73b14e",
+        "data": "aae503e324c432459373ddff13c57d8352fb9f3a2d35c614a8f417f3f0877a2d",
+        "requirement": "27b7c2e2fc6acdc6",
+        "test_case": "65b18dfa3272572b"
+      }
+    },
+    "PRP-033@RUN-0002": {
+      "requirement": "PRP-033",
+      "source": "RUN-0002",
+      "test_case": "TC-HF-002",
+      "verdict": "pass",
+      "measured": "135.1 bar",
+      "margin": 0.021324,
+      "applicable": true,
+      "components": {
+        "channels": "cfe76e0717482474",
+        "configuration": "77d6e8f54e73b14e",
+        "data": "8fbfbd7d3fd6b90e94aa82ea92d820eed936e8f0d4155aba866bcafb20d16608",
+        "requirement": "8eb1001580940acf",
+        "test_case": "186e4f6f9867b5e0"
+      }
+    },
+    "PRP-044@design": {
+      "requirement": "PRP-044",
+      "source": "design",
+      "test_case": null,
+      "verdict": "pass",
+      "measured": "317.7 s",
+      "margin": 0.008717,
+      "applicable": true,
+      "components": {
+        "model": "57dfd2447cbb17f5",
+        "params": "6220dda2e7b97429",
+        "requirement": "c2f45ccbbc66cfe0"
+      }
+    },
+    "PRP-050@RUN-0003": {
+      "requirement": "PRP-050",
+      "source": "RUN-0003",
+      "test_case": "TC-HF-001",
+      "verdict": "pass",
+      "measured": "29.92 s",
+      "margin": 0.196919,
+      "applicable": true,
+      "components": {
+        "channels": "cfe76e0717482474",
+        "configuration": "77d6e8f54e73b14e",
+        "data": "aae503e324c432459373ddff13c57d8352fb9f3a2d35c614a8f417f3f0877a2d",
+        "requirement": "72a9c3f43dfbd1b9",
+        "test_case": "65b18dfa3272572b"
+      }
+    },
+    "STR-012@design": {
+      "requirement": "STR-012",
+      "source": "design",
+      "test_case": null,
+      "verdict": "pass",
+      "measured": "76.5 kg",
+      "margin": 0.194737,
+      "applicable": true,
+      "components": {
+        "params": "6eec1896d6430a76",
+        "requirement": "b05e9afee49042c2"
+      }
+    },
+    "SYS-030@design": {
+      "requirement": "SYS-030",
+      "source": "design",
+      "test_case": null,
+      "verdict": "pass",
+      "measured": "1.26 m",
+      "margin": 0.1,
+      "applicable": true,
+      "components": {
+        "params": "6d52e57f6abff149",
+        "requirement": "c3d6cd903738df87"
+      }
+    },
+    "TCS-020@RUN-0003": {
+      "requirement": "TCS-020",
+      "source": "RUN-0003",
+      "test_case": "TC-HF-001",
+      "verdict": "pass",
+      "measured": "858.4 K",
+      "margin": 0.046278,
+      "applicable": true,
+      "components": {
+        "channels": "4c0c380a9c4703c5",
+        "configuration": "77d6e8f54e73b14e",
+        "data": "aae503e324c432459373ddff13c57d8352fb9f3a2d35c614a8f417f3f0877a2d",
+        "requirement": "cf4c460180f6eba6",
+        "test_case": "58bb014190058a86"
+      }
+    }
+  },
+  "model_outputs": {
+    "cf_vac": "1.804",
+    "cstar": "1728 m/s",
+    "exit_diameter": "197.2 mm",
+    "exit_mach": "4.142",
+    "exit_pressure": "33.58 kPa",
+    "isp_vac": "317.7 s",
+    "mass_flow": "7.07 kg/s",
+    "thrust_vac": "22.03 kN"
+  }
+}

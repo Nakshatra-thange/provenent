@@ -1,0 +1,32 @@
+test_cases:
+  - id: TC-HF-001
+    title: Full-duration hot fire
+    description: 30 s firing at the nominal operating point in the altitude cell.
+    verifies: [PRP-010, PRP-031, PRP-050, TCS-020]
+    configuration: [chamber_pressure_nominal, expansion_ratio, throat_diameter]
+    events:
+      ignition: {channel: chamber_pressure, rises_above: 10 bar}
+      shutdown: {channel: chamber_pressure, falls_below: 10 bar, after: ignition}
+    windows:
+      steady_state: {start: ignition + 2 s, end: shutdown - 1 s}
+
+  - id: TC-HF-002
+    title: Start-up transient
+    description: Short firing instrumented for the start-up transient.
+    verifies: [PRP-031, PRP-033]
+    configuration: [chamber_pressure_nominal]
+    events:
+      ignition: {channel: chamber_pressure, rises_above: 10 bar}
+    windows:
+      startup: {start: ignition, end: ignition + 1.5 s}
+
+  - id: TC-RS-001
+    title: Restart
+    description: Two firings separated by a 60 s coast.
+    verifies: [PRP-060]
+    configuration: [chamber_pressure_nominal]
+    events:
+      first_shutdown: {channel: chamber_pressure, falls_below: 10 bar}
+      reignition: {channel: chamber_pressure, rises_above: 10 bar, after: first_shutdown}
+    windows:
+      second_burn: {start: reignition + 1 s, end: end}
